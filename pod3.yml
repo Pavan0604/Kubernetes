@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: environment
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/sh", "-c", "while true; do echo Hello; sleep 5; done"]
+      env:
+      - name: "myname"
+        value: "pavan"
+      - name: "password"
+        value: "12345678"

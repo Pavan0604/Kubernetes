@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: myvolemptydir
+spec:
+  containers:
+    - name: c1
+      image: centos
+      command: ["/bin/sh", "-c", "sleep 15000"]
+      volumeMounts:
+        - name: xchange
+          mountPath: "/tmp/xchange"
+    - name: c2
+      image: ubuntu
+      command: ["/bin/sh", "-c", "sleep 15000"]
+      volumeMounts:
+        - name: xchange
+          mountPath: "/tmp/data"
+  volumes:
+    - name: xchange
+      emptyDir: {}
+
