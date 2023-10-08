@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: myenvconfigmap
+spec:
+  containers:
+    - name: c1
+      image: centos
+      command: ["/bin/bash", "-c", "while true; do echo hello; sleep 5; done"]
+      env:
+        - name: MYENV   # env name in which value of key is stored
+          valueFrom:
+            configMapKeyRef:
+              name: mymap   # name of the configmap created using kubectl
+              key: sample.conf
