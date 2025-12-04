@@ -1,0 +1,179 @@
+Name:               ip-172-31-10-207.ec2.internal
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=t3.medium
+                    beta.kubernetes.io/os=linux
+                    eks.amazonaws.com/capacityType=SPOT
+                    eks.amazonaws.com/nodegroup=KubernetesNodeGroup
+                    eks.amazonaws.com/nodegroup-image=ami-03db9f32eaa4c3c75
+                    failure-domain.beta.kubernetes.io/region=us-east-1
+                    failure-domain.beta.kubernetes.io/zone=us-east-1b
+                    k8s.io/cloud-provider-aws=3f118093c8f614a046f7f5df706e2bd4
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=ip-172-31-10-207.ec2.internal
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=t3.medium
+                    topology.k8s.aws/zone-id=use1-az1
+                    topology.kubernetes.io/region=us-east-1
+                    topology.kubernetes.io/zone=us-east-1b
+Annotations:        alpha.kubernetes.io/provided-node-ip: 172.31.10.207
+                    node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 15 Aug 2025 07:34:13 +0000
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  ip-172-31-10-207.ec2.internal
+  AcquireTime:     <unset>
+  RenewTime:       Sun, 17 Aug 2025 04:49:21 +0000
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Sun, 17 Aug 2025 04:45:34 +0000   Fri, 15 Aug 2025 07:34:09 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Sun, 17 Aug 2025 04:45:34 +0000   Fri, 15 Aug 2025 07:34:09 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Sun, 17 Aug 2025 04:45:34 +0000   Fri, 15 Aug 2025 07:34:09 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Sun, 17 Aug 2025 04:45:34 +0000   Fri, 15 Aug 2025 07:34:26 +0000   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:   172.31.10.207
+  ExternalIP:   44.201.38.134
+  InternalDNS:  ip-172-31-10-207.ec2.internal
+  Hostname:     ip-172-31-10-207.ec2.internal
+  ExternalDNS:  ec2-44-201-38-134.compute-1.amazonaws.com
+Capacity:
+  cpu:                2
+  ephemeral-storage:  20893676Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             3919460Ki
+  pods:               17
+Allocatable:
+  cpu:                1930m
+  ephemeral-storage:  18181869946
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             3364452Ki
+  pods:               17
+System Info:
+  Machine ID:                 ec2d0e2db39b8ea91199b882787aed23
+  System UUID:                ec2d0e2d-b39b-8ea9-1199-b882787aed23
+  Boot ID:                    b6abd8ca-8353-4269-bb8a-58d277148149
+  Kernel Version:             6.1.141-165.249.amzn2023.x86_64
+  OS Image:                   Amazon Linux 2023.8.20250707
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.7.27
+  Kubelet Version:            v1.33.0-eks-802817d
+  Kube-Proxy Version:         
+ProviderID:                   aws:///us-east-1b/i-0d1beaac9d16db2b4
+Non-terminated Pods:          (13 in total)
+  Namespace                   Name                               CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                               ------------  ----------  ---------------  -------------  ---
+  carts                       carts-68d496fff8-4q9tz             250m (12%)    0 (0%)      1Gi (31%)        1Gi (31%)      11d
+  carts                       carts-dynamodb-995f7768c-plrkd     0 (0%)        0 (0%)      0 (0%)           0 (0%)         11d
+  catalog                     catalog-5fdcc8c65-vvqbq            250m (12%)    0 (0%)      512Mi (15%)      512Mi (15%)    11d
+  catalog                     catalog-mysql-0                    0 (0%)        0 (0%)      0 (0%)           0 (0%)         11d
+  checkout                    checkout-5b885fb57c-ml9th          250m (12%)    0 (0%)      512Mi (15%)      512Mi (15%)    11d
+  checkout                    checkout-redis-69cb79ff4d-c8rbn    0 (0%)        0 (0%)      0 (0%)           0 (0%)         11d
+  kube-system                 aws-node-b9bwq                     50m (2%)      0 (0%)      0 (0%)           0 (0%)         45h
+  kube-system                 coredns-5d849c4789-bzf6p           100m (5%)     0 (0%)      70Mi (2%)        170Mi (5%)     11d
+  kube-system                 coredns-5d849c4789-pf46x           100m (5%)     0 (0%)      70Mi (2%)        170Mi (5%)     11d
+  kube-system                 kube-proxy-6jzm5                   100m (5%)     0 (0%)      0 (0%)           0 (0%)         45h
+  kube-system                 metrics-server-6d499768b4-5cg8x    100m (5%)     0 (0%)      200Mi (6%)       400Mi (12%)    11d
+  kube-system                 metrics-server-6d499768b4-xxxm4    100m (5%)     0 (0%)      200Mi (6%)       400Mi (12%)    11d
+  orders                      orders-postgresql-0                0 (0%)        0 (0%)      0 (0%)           0 (0%)         11d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                1300m (67%)   0 (0%)
+  memory             2588Mi (78%)  3188Mi (97%)
+  ephemeral-storage  0 (0%)        0 (0%)
+  hugepages-1Gi      0 (0%)        0 (0%)
+  hugepages-2Mi      0 (0%)        0 (0%)
+Events:              <none>
+
+
+Name:               ip-172-31-32-237.ec2.internal
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=t3.medium
+                    beta.kubernetes.io/os=linux
+                    eks.amazonaws.com/capacityType=SPOT
+                    eks.amazonaws.com/nodegroup=KubernetesNodeGroup
+                    eks.amazonaws.com/nodegroup-image=ami-03db9f32eaa4c3c75
+                    failure-domain.beta.kubernetes.io/region=us-east-1
+                    failure-domain.beta.kubernetes.io/zone=us-east-1a
+                    k8s.io/cloud-provider-aws=3f118093c8f614a046f7f5df706e2bd4
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=ip-172-31-32-237.ec2.internal
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=t3.medium
+                    topology.k8s.aws/zone-id=use1-az6
+                    topology.kubernetes.io/region=us-east-1
+                    topology.kubernetes.io/zone=us-east-1a
+Annotations:        alpha.kubernetes.io/provided-node-ip: 172.31.32.237
+                    node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 15 Aug 2025 07:34:13 +0000
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  ip-172-31-32-237.ec2.internal
+  AcquireTime:     <unset>
+  RenewTime:       Sun, 17 Aug 2025 04:49:17 +0000
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Sun, 17 Aug 2025 04:48:47 +0000   Fri, 15 Aug 2025 07:34:11 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Sun, 17 Aug 2025 04:48:47 +0000   Fri, 15 Aug 2025 07:34:11 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Sun, 17 Aug 2025 04:48:47 +0000   Fri, 15 Aug 2025 07:34:11 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Sun, 17 Aug 2025 04:48:47 +0000   Fri, 15 Aug 2025 07:34:27 +0000   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:   172.31.32.237
+  ExternalIP:   54.210.4.222
+  InternalDNS:  ip-172-31-32-237.ec2.internal
+  Hostname:     ip-172-31-32-237.ec2.internal
+  ExternalDNS:  ec2-54-210-4-222.compute-1.amazonaws.com
+Capacity:
+  cpu:                2
+  ephemeral-storage:  20893676Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             3919460Ki
+  pods:               17
+Allocatable:
+  cpu:                1930m
+  ephemeral-storage:  18181869946
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             3364452Ki
+  pods:               17
+System Info:
+  Machine ID:                 ec20d4e02b0a6014439414c9fe8f26b2
+  System UUID:                ec20d4e0-2b0a-6014-4394-14c9fe8f26b2
+  Boot ID:                    f7e42e7c-aa07-4f68-8145-36ed338e66cb
+  Kernel Version:             6.1.141-165.249.amzn2023.x86_64
+  OS Image:                   Amazon Linux 2023.8.20250707
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.7.27
+  Kubelet Version:            v1.33.0-eks-802817d
+  Kube-Proxy Version:         
+ProviderID:                   aws:///us-east-1a/i-0d0f4f30b6ea8a311
+Non-terminated Pods:          (4 in total)
+  Namespace                   Name                       CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                       ------------  ----------  ---------------  -------------  ---
+  kube-system                 aws-node-vlxsr             50m (2%)      0 (0%)      0 (0%)           0 (0%)         45h
+  kube-system                 kube-proxy-f2szc           100m (5%)     0 (0%)      0 (0%)           0 (0%)         45h
+  orders                      orders-74f89d6dbd-7fss4    250m (12%)    0 (0%)      1Gi (31%)        1Gi (31%)      11d
+  ui                          ui-5989474687-tk8zl        250m (12%)    0 (0%)      1536Mi (46%)     1536Mi (46%)   11d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                650m (33%)    0 (0%)
+  memory             2560Mi (77%)  2560Mi (77%)
+  ephemeral-storage  0 (0%)        0 (0%)
+  hugepages-1Gi      0 (0%)        0 (0%)
+  hugepages-2Mi      0 (0%)        0 (0%)
+Events:              <none>

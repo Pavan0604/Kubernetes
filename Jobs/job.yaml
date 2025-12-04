@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: myjob-
+  labels:
+    app: myjob
+spec:
+  completions: 4
+  parallelism: 2
+  template:
+    metadata:
+      name: myjob
+    spec:
+      containers:
+        - name: myjobcontainer
+          image: devopscube/kubernetes-job-demo:latest      
+          args: ["100"]
+      restartPolicy: OnFailure

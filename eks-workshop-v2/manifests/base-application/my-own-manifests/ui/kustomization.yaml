@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ui
+resources:
+  - namespace.yaml
+  - configMap.yaml
+  - serviceAccount.yaml
+  - deployment.yaml
+  - service.yaml 
+  - service-nodeport.yaml
+  #- service-network-loadbalancer.yaml
+  #- service-ingress.yaml
+  #- service-externaldns.yaml
+  #- service-multiple-ingress-pattern.yaml
+  - efs-pvc-claim.yaml
+patches:
+  #- path: service-nlb-patch.yaml
+  - path: ui-deploy-patch.yaml
+
+  

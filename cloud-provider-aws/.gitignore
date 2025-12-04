@@ -1,0 +1,13 @@
+/aws-cloud-controller-manager
+/ecr-credential-provider
+/ecr-credential-provider.exe
+/cloudconfig
+_output/
+/kops-example
+docs/book/_book/
+site/
+.vscode/
+e2e.test
+.idea/
+**/*.swp
+.DS_Store

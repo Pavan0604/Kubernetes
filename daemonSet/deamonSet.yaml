@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd
+  namespace: logging
+  labels:
+    app: fluentd-logging
+spec:
+  selector:
+    matchLabels:
+      name: fluentd
+  template:
+    metadata:
+      labels:
+        name: fluentd
+    spec:
+      # tolerations:
+      #   - key: app 
+      #     value: fluentd-logging
+      #     operator: Equal
+      #     effect: NoExecute
+      # nodeSelector:
+      #   type: platform-tools
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: type
+      #               operator: In 
+      #               values: 
+      #               - platform-tools
+      # securityContext:
+      #   runAsNonRoot: true
+      priorityClassName: high-priority
+      containers:
+        - name: fluentd-elasticsearch
+          image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+          # securityContext:
+          #   allowPrivilegeEscalation: false
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "100m"
+            requests:
+              cpu: "100m"
+              memory: "200Mi"
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+      terminationGracePeriodSeconds: 30
+      volumes: 
+        - name: varlog
+          hostPath:
+            path: /var/log
+

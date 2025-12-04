@@ -1,0 +1,103 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: Cluster
+metadata:
+  name: aws-external-cloud-provider-example.k8s.local
+spec:
+  api:
+    loadBalancer:
+      type: Public
+  authorization:
+    rbac: {}
+  channel: stable
+  cloudProvider: aws
+  containerRuntime: containerd
+  etcdClusters:
+  - cpuRequest: 200m
+    etcdMembers:
+    - instanceGroup: master-us-west-2a
+      name: a
+    memoryRequest: 100Mi
+    name: main
+  - cpuRequest: 100m
+    etcdMembers:
+    - instanceGroup: master-us-west-2a
+      name: a
+    memoryRequest: 100Mi
+    name: events
+  iam:
+    allowContainerRegistry: true
+    legacy: false
+  kubeAPIServer:
+    auditLogMaxAge: 10
+    auditLogMaxBackups: 1
+    auditLogMaxSize: 100
+    auditLogPath: /var/log/kube-apiserver-audit.log
+    auditPolicyFile: /srv/kubernetes/kube-apiserver/policy-config.yaml
+  fileAssets:
+  - name: audit-policy-config
+    path: /srv/kubernetes/kube-apiserver/policy-config.yaml
+    roles:
+    - Master
+    content: |
+      apiVersion: audit.k8s.io/v1
+      kind: Policy
+      rules:
+      - level: Metadata
+  kubelet:
+    anonymousAuth: false
+  kubernetesApiAccess:
+  - 0.0.0.0/0
+  masterInternalName: api.internal.aws-external-cloud-provider-example.k8s.local
+  masterPublicName: api.aws-external-cloud-provider-example.k8s.local
+  networkCIDR: 172.20.0.0/16
+  networking:
+    cilium: {}
+  nonMasqueradeCIDR: 100.64.0.0/10
+  sshAccess:
+  - 0.0.0.0/0
+  subnets:
+  - cidr: 172.20.32.0/19
+    name: us-west-2a
+    type: Public
+    zone: us-west-2a
+  topology:
+    dns:
+      type: Public
+    masters: public
+    nodes: public
+
+---
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  labels:
+    kops.k8s.io/cluster: aws-external-cloud-provider-example.k8s.local
+  name: master-us-west-2a
+spec:
+  image: ssm:/aws/service/canonical/ubuntu/server/20.04/stable/current/amd64/hvm/ebs-gp2/ami-id
+  machineType: t3.medium
+  maxSize: 1
+  minSize: 1
+  nodeLabels:
+    kops.k8s.io/instancegroup: master-us-west-2a
+  role: Master
+  subnets:
+  - us-west-2a
+
+---
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  labels:
+    kops.k8s.io/cluster: aws-external-cloud-provider-example.k8s.local
+  name: nodes-us-west-2a
+spec:
+  image: ssm:/aws/service/canonical/ubuntu/server/20.04/stable/current/amd64/hvm/ebs-gp2/ami-id
+  machineType: t3.medium
+  maxSize: 2
+  minSize: 2
+  nodeLabels:
+    kops.k8s.io/instancegroup: nodes-us-west-2a
+  role: Node
+  subnets:
+  - us-west-2a

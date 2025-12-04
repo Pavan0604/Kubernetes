@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: carts
+resources:
+  - namespace.yaml
+  - configMap.yaml 
+  - serviceAccount.yaml 
+  - dynamodb-service.yaml
+  - dynamodb-service-nodeport.yaml
+  - dynamodb-deployment.yaml
+  - carts-service.yaml
+  - carts-service-nodeport.yaml
+  - carts-deployment.yaml
